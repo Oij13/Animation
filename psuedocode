@@ -1,0 +1,37 @@
+Import pygame into program
+
+Main will hold everything
+
+
+
+Init pygame
+
+Set the size of the screen and caption program
+
+Load custom background “moon”
+
+Load the boat image and convert and scale to the screen
+
+Set x and y coordinates to top of riverbed
+	Screen.get_width for x
+	270 for y
+
+
+keepGoing loop
+
+Set framerate
+While keepGoing:
+
+If quit:
+	Quit
+
+Screen blit for background
+
+If the sprite passes the left or top of the screen, reset back to original coords.
+
+Screen blit for sprite
+
+Quit option after while loop
+
+
+Call main
