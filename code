@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 19 15:54:25 2024
+
+@author: Owen
+"""
+
+import pygame
+
+def main():
+    pygame.init()
+    
+    screen = pygame.display.set_mode((640, 480))
+    pygame.display.set_caption("Animation")
+    
+    bg = pygame.image.load("moon.png").convert_alpha()
+    bg = pygame.transform.scale(bg, screen.get_size())
+    
+    cardinal = pygame.image.load("kajak.gif")
+    cardinal = cardinal.convert_alpha()
+    cardinal = pygame.transform.scale(cardinal, (200, 90))
+    
+    cardinal_x = screen.get_width()
+    cardinal_y = 270
+    
+    clock = pygame.time.Clock()
+    keepGoing = True
+    
+    while keepGoing:
+        clock.tick(30)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                keepGoing = False
+        
+        screen.blit(bg, (0, 0))
+        
+        
+        if cardinal_x < 200:
+            cardinal_y -= 6
+        cardinal_x -= 3
+        
+        if cardinal_x < -100 or cardinal_y < -90:
+            cardinal_x = screen.get_width()
+            cardinal_y = 270
+        
+            
+            
+        
+            
+        
+        screen.blit(cardinal, (cardinal_x, cardinal_y))
+        
+        pygame.display.flip()
+        
+    pygame.quit()
+        
+if __name__ == "__main__":
+    main()
